@@ -72,7 +72,7 @@ const thoughtController = {
   },
 
   // remove thought from a user
-  removeThought({ params }, res) {
+  deleteThought({ params }, res) {
     // deletes the document while laos returning its data
     Thought.findOneAndDelete({ _id: params.thoughtId })
       .then((deletedThought) => {
@@ -117,7 +117,7 @@ const thoughtController = {
   },
 
   // remove reaction from a thought
-  removeReaction({ params }, res) {
+  deleteReaction({ params }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       // remove specific reaction from the reactions array where the reactionId matches the value of params.reactionId passed in from the route
