@@ -2,7 +2,7 @@ const { User, Thought } = require("../models");
 
 const userController = {
   //get all users
-  getAllUser(req, res) {
+  getAllUsers(req, res) {
     User.find({})
       .populate(
         { 
@@ -99,7 +99,7 @@ const userController = {
       .catch((err) => res.json(err));
   },
   // delete friends
-  removeFriend({ params }, res) {
+  deleteFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
       { $pull: { friends: params.friendId } },
